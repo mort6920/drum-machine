@@ -1,0 +1,170 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0f1a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+}
+
+/* ── Machine shell ── */
+#drum-machine {
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 20px;
+  padding: 36px 40px 40px;
+  box-shadow:
+    0 0 0 2px #0f3460,
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  width: min(420px, 95vw);
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e94560;
+  text-shadow: 0 0 18px rgba(233, 69, 96, 0.6);
+  margin-bottom: 14px;
+}
+
+/* ── Display ── */
+#display {
+  background: #0a0a14;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #53d8fb;
+  text-shadow: 0 0 10px rgba(83, 216, 251, 0.5);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+/* ── Nametag ── */
+#nama {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  color: #e94560;
+  text-shadow:
+    0 0 8px rgba(233, 69, 96, 0.7),
+    0 0 20px rgba(233, 69, 96, 0.3);
+  margin-top: 4px;
+  opacity: 0.75;
+  transition: opacity 0.2s, text-shadow 0.2s;
+}
+
+#nama:hover {
+  opacity: 1;
+  text-shadow:
+    0 0 10px rgba(233, 69, 96, 1),
+    0 0 28px rgba(83, 216, 251, 0.4);
+}
+
+
+
+/* ── Pad bank ── */
+#pad-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* ── Individual pads ── */
+.drum-pad {
+  position: relative;
+  background: linear-gradient(145deg, #1e2a4a, #162040);
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  height: 90px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #a8b8d8;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    background 0.1s ease,
+    border-color 0.1s ease,
+    box-shadow 0.1s ease,
+    color 0.1s ease;
+  box-shadow:
+    0 6px 0 #0a1628,
+    0 8px 16px rgba(0, 0, 0, 0.4);
+  /* hide the audio element visually */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drum-pad audio {
+  display: none;
+}
+
+/* Hover state */
+.drum-pad:hover {
+  border-color: #e94560;
+  color: #ffffff;
+  box-shadow:
+    0 6px 0 #0a1628,
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(233, 69, 96, 0.25);
+}
+
+/* Active / pressed state */
+.drum-pad:active,
+.drum-pad.active {
+  transform: translateY(5px);
+  box-shadow:
+    0 1px 0 #0a1628,
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 0 28px rgba(233, 69, 96, 0.5);
+  background: linear-gradient(145deg, #2a1a3a, #1e1030);
+  border-color: #e94560;
+  color: #e94560;
+}
+
+/* Focus ring for accessibility */
+.drum-pad:focus-visible {
+  outline: 2px solid #53d8fb;
+  outline-offset: 3px;
+}
+
+/* ── Subtle key label overlay ── */
+.drum-pad::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  font-size: 0.55rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(168, 184, 216, 0.45);
+  text-align: center;
+}
