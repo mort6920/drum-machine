@@ -1,20 +1,14 @@
 #  Beat Box — Drum Machine
 
-A browser-based drum machine built as part of the **freeCodeCamp JavaScript Algorithms and Data Structures** curriculum.
-
----
-
-##  About
 
 Beat Box lets you trigger drum sounds either by clicking the pads on screen or pressing the corresponding keys on your keyboard. A display bar shows the name of the last triggered sound in real time.
 
 ---
 
-##  How to Use
+## Link
 
-1. Open `index.html` in any modern browser — no installation needed or you can click this link https://beatboxcihuy.netlify.app
-2. **Click** any pad, or **press the matching key** on your keyboard to play a sound.
-3. The display at the top updates with the name of the sound that was just played.
+ https://beatboxcihuy.netlify.app
+
 
 ---
 
